@@ -4,7 +4,7 @@ set -e
 set -x
 
 
-git clone git@github.com:msrb/maven-index-checker-1.git maven-index-checker
+git clone https://github.com/msrb/maven-index-checker-1.git maven-index-checker
 pushd maven-index-checker
 git checkout csv-output
 
