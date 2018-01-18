@@ -84,7 +84,10 @@ fixedin:
 
     _, year, cid = cve_id.split('-')
     try:
-        os.makedirs('database/{y}'.format(y=year))
+        ws = os.environ.get('WORKSPACE')
+        db_dir = os.path.join(ws, 'database')
+        year_dir = os.path.join(db_dir, year)
+        os.makedirs(year_dir)
     except FileExistsError:
         pass
 
