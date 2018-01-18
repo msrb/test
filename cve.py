@@ -59,8 +59,7 @@ def run():
 
             query_template = 'product:( {product} )  AND  vendor:( {vendor} )'
             product.update(pkg_name_candidates)
-            query = query_template.format(product=' '.join(product), vendor=''.join(vendor))
-            query = query.replace(':', ' ')
+            query = query_template.format(product=' '.join(product.replace(':', ' ')), vendor=''.join(vendor.replace(':', ' ')))
             print(query)
 
             cwd = os.path.dirname(os.path.realpath(__file__))
@@ -69,7 +68,7 @@ def run():
             print('pkgFile=' + pkg_file)
 
             cpe2pkg_output = subprocess.check_output('java -DpkgFile=' + pkg_file + ' -jar cpe2pkg.jar "' + query + '"', shell=True, universal_newlines=True)
-            print(cpe2pkg_output)
+            # print(cpe2pkg_output)
 
             cpe2pkg_lines = cpe2pkg_output.split('\n')
 
