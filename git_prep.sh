@@ -14,7 +14,7 @@ branches=
 for f in ${files}; do
     git checkout master
 
-    cve_id=$(find "$f" -name "*.yaml" | basename "$f")
+    cve_id=$(basename "$f")
     branch=${cve_id}-${BUILD_NUMBER}
     git checkout -b ${branch}
     git add "$f"
