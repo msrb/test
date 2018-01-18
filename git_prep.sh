@@ -27,3 +27,4 @@ for f in ${files}; do
 " https://api.github.com/repos/msrb/cvedb-test/pulls
 
 done
+
