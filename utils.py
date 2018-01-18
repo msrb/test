@@ -22,6 +22,7 @@ def get_configurations(data):
     return confs, versions
 
 
+
 def cpe_is_app(cpe_str):
     return cpe_str[len('cpe:/'):][0] == 'a'
 
@@ -91,7 +92,8 @@ fixedin:
     except FileExistsError:
         pass
 
-    with open('database/{y}/{id}.yaml'.format(y=year, id=cid), 'w') as f:
+    yaml_file = os.path.join(year_dir, cid + '.yaml')
+    with open(yaml_file, 'w') as f:
         g, a = pkg_name.split(':')
         refs = '    - '.join([x + '\n' for x in references])
         data = template.format(cve_id=cve_id, pkg_name=pkg_name, cvss=cvss, desc=description, g=g, a=a, v='!FIXME!',
