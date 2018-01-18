@@ -66,6 +66,8 @@ def run():
             cwd = os.path.dirname(os.path.realpath(__file__))
             pkg_file = os.path.join(cwd, 'packages')
 
+            print('pkgFile=' + pkg_file)
+
             cpe2pkg_output = subprocess.check_output('java -DpkgFile=' + pkg_file + ' -jar cpe2pkg.jar "' + query + '"', shell=True, universal_newlines=True)
             print(cpe2pkg_output)
 
