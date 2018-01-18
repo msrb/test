@@ -12,7 +12,7 @@ files=$(git status -s | awk '{ print $2 }')
 
 branches=
 for f in ${files}; do
-    git chechkout master
+    git checkkout master
 
     branch=$(basename "$f")
     git checkout -b ${branch}
