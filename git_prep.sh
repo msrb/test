@@ -14,9 +14,10 @@ branches=
 for f in ${files}; do
     git checkout master
 
-    number=$(basename "$f")
+    number_yaml=$(basename "$f")
+    number=${number_yaml%.yaml}
     year=$(basename `dirname "$f"`)
-    cve_id=${year}-${number}
+    cve_id="CVE-${year}-${number}"
     branch=${cve_id}-${BUILD_NUMBER}
     git checkout -b ${branch}
     git add "$f"
