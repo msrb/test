@@ -93,6 +93,7 @@ fixedin:
         pass
 
     yaml_file = os.path.join(year_dir, cid + '.yaml')
+    print('YAML file: ' + yaml_file)
     with open(yaml_file, 'w') as f:
         g, a = pkg_name.split(':')
         refs = '    - '.join([x + '\n' for x in references])
