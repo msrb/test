@@ -63,7 +63,7 @@ def run():
             print(query)
 
             cpe2pkg_output = subprocess.check_output('java -jar cpe2pkg.jar "' + query + '"', shell=True, universal_newlines=True)
-            # print(cpe2pkg_output)
+            print(cpe2pkg_output)
 
             cpe2pkg_lines = cpe2pkg_output.split('\n')
 
