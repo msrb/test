@@ -3,6 +3,10 @@
 set -e
 set -x
 
+pwd
+ls -la
+
+
 files=$(git status -s | awk '{ print $2 }')
 
 
