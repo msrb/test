@@ -15,7 +15,7 @@ for f in ${files}; do
     git checkout master
 
     number=$(basename "$f")
-    year=$(basename `basedir "$f"`)
+    year=$(basename `dirname "$f"`)
     cve_id=${year}-${number}
     branch=${cve_id}-${BUILD_NUMBER}
     git checkout -b ${branch}
