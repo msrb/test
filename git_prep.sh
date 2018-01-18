@@ -24,10 +24,10 @@ for f in ${files}; do
 
     curl -X POST -H 'Content-Type: application/json' -H "Authorization: token $GITHUB_TOKEN" -d "\
     { \
-        "title": "Test", \
-        "body": "TODO", \
-        "head": "${branch}", \
-        "base": "master" \
+        \"title\": \"Test\", \
+        \"body\": \"TODO\", \
+        \"head\": \"${branch}\", \
+        \"base\": \"master\" \
     } \
 " https://api.github.com/repos/msrb/cvedb-test/pulls
 
