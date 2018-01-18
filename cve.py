@@ -59,7 +59,7 @@ def run():
 
             query_template = 'product:( {product} )  AND  vendor:( {vendor} )'
             product.update(pkg_name_candidates)
-            query = query_template.format(product=' '.join(product.replace(':', ' ')), vendor=''.join(vendor.replace(':', ' ')))
+            query = query_template.format(product=' '.join(product).replace(':', ' '), vendor=''.join(vendor).replace(':', ' '))
             print(query)
 
             cwd = os.path.dirname(os.path.realpath(__file__))
