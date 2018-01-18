@@ -59,7 +59,7 @@ def run():
             query_template = 'product:( {product} )  AND  vendor:( {vendor} )'
             product.update(pkg_name_candidates)
             query = query_template.format(product=' '.join(product), vendor=''.join(vendor))
-            # query = query.replace(':', ' ')
+            query = query.replace(':', ' ')
             print(query)
 
             cpe2pkg_output = subprocess.check_output('java -jar cpe2pkg.jar "' + query + '"', shell=True, universal_newlines=True)
