@@ -14,16 +14,17 @@ branches=
 for f in ${files}; do
     git checkout master
 
-    branch=$(basename "$f")
+    cve_id=$(basename "$f")
+    branch=${cve_id}-${BUILD_NUMBER}
     git checkout -b ${branch}
     git add "$f"
-    git commit -m "Add $branch"
+    git commit -m "Add $cve_id"
     branches="$branches $branch"
     git push -u origin ${branch}
 
     curl -X POST -H 'Content-Type: application/json' -H "Authorization: token $GITHUB_TOKEN" -d "\
     { \
-        "title": "Add ${branch}", \
+        "title": "Add ${cve_id}", \
         "body": "TODO", \
         "head": "${branch}", \
         "base": "master" \
