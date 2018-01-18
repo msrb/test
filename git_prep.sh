@@ -17,7 +17,7 @@ for f in ${files}; do
     branches="$branches $branch"
     git push -u origin ${branch}
 
-    curl -X POST -H 'Content-Type: application/json' -d "\
+    curl -X POST -H 'Content-Type: application/json' -H "Authorization: token $GITHUB_TOKEN" -d "\
     { \
         "title": "Add ${branch}", \
         "body": "TODO", \
