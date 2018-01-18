@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import os
 import json
 import subprocess
 from utils import get_configurations, cpe_is_app, extract_vendor_product_version, guess_package_name, generate_yaml
@@ -62,7 +63,10 @@ def run():
             query = query.replace(':', ' ')
             print(query)
 
-            cpe2pkg_output = subprocess.check_output('java -jar cpe2pkg.jar "' + query + '"', shell=True, universal_newlines=True)
+            cwd = os.path.dirname(os.path.realpath(__file__))
+            pkg_file = os.path.join(cwd, 'packages')
+
+            cpe2pkg_output = subprocess.check_output('java -jar cpe2pkg.jar -DpkgFile=' + pkg_file + '"' + query + '"', shell=True, universal_newlines=True)
             print(cpe2pkg_output)
 
             cpe2pkg_lines = cpe2pkg_output.split('\n')
